@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvvarI for Bharat - AWS Architecture Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .architecture-container {
+            background: white;
+            border: 3px solid #232f3e;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .aws-account {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-weight: bold;
+            color: #232f3e;
+        }
+        .region-box {
+            border: 2px dashed #ff9900;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fff9f0;
+            position: relative;
+        }
+        .region-label {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: white;
+            padding: 0 10px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+        .az-box {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            display: inline-block;
+            vertical-align: top;
+            width: 200px;
+            position: relative;
+        }
+        .az-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #666;
+            font-size: 12px;
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin: 5px auto;
+            display: block;
+            border-radius: 8px;
+            position: relative;
+        }
+        .service-label {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .service-box {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px;
+            margin: 5px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .external-box {
+            background: #e8f4fd;
+            border: 1px solid #1976d2;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+        .flow-arrow {
+            position: absolute;
+            color: #ff9900;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .numbered-step {
+            background: #ff9900;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 5px;
+        }
+        .ai-services {
+            background: #fff3e0;
+            border: 2px solid #f57c00;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .storage-services {
+            background: #f3e5f5;
+            border: 2px solid #7b1fa2;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .edge-services {
+            background: #e8f5e8;
+            border: 2px solid #388e3c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #232f3e;
+            margin-bottom: 20px;
+        }
+        .legend {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="architecture-container">
+        <div class="aws-account">AWS Account</div>
+        <div class="title">AvvarI for Bharat - Heritage Site Digitization Platform</div>
+        
+        <!-- External Users -->
+        <div class="external-box">
+            <div style="font-size: 40px;">👥</div>
+            <div><strong>Heritage Site Visitors</strong></div>
+            <div>Mobile Devices</div>
+        </div>
+        
+        <div class="numbered-step">1</div>
+        
+        <!-- Edge Services -->
+        <div class="edge-services">
+            <div style="display: flex; justify-content: space-around; align-items: center;">
+                <div class="service-box">
+                    <div style="background: #ff9900; color: white; padding: 20px; border-radius: 8px;">🛡️</div>
+                    <div class="service-label">AWS Shield<br/>DDoS Protection</div>
+                </div>
+                
+                <div class="numbered-step">2</div>
+                
+                <div class="service-box">
+                    <div style="background: #ff9900; color: white; padding: 20px; border-radius: 8px;">🌐</div>
+                    <div class="service-label">Amazon CloudFront<br/>Global CDN</div>
+                </div>
+                
+                <div class="numbered-step">3</div>
+                
+                <div class="service-box">
+                    <div style="background: #ff9900; color: white; padding: 20px; border-radius: 8px;">🔥</div>
+                    <div class="service-label">AWS WAF<br/>Web Application Firewall</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- AWS Region -->
+        <div class="region-box">
+            <div class="region-label">AWS Region: ap-south-1 (Mumbai)</div>
+            
+            <div class="numbered-step">4</div>
+            
+            <!-- API Gateway -->
+            <div style="text-align: center; margin: 20px 0;">
+                <div class="service-box" style="display: inline-block; width: 200px;">
+                    <div style="background: #ff9900; color: white; padding: 20px; border-radius: 8px;">🚪</div>
+                    <div class="service-label">Amazon API Gateway<br/>REST API Endpoints<br/>Authentication & Rate Limiting</div>
+                </div>
+            </div>
+            
+            <div class="numbered-step">5</div>
+            
+            <!-- Availability Zones -->
+            <div style="display: flex; justify-content: space-around;">
+                <!-- AZ 1 -->
+                <div class="az-box">
+                    <div class="az-label">Availability Zone 1a</div>
+                    
+                    <div class="service-box">
+                        <div style="background: #ff9900; color: white; padding: 15px; border-radius: 8px;">⚙️</div>
+                        <div class="service-label">AWS Lambda<br/>QR Processing<br/>Content Generation</div>
+                    </div>
+                    
+                    <div class="service-box">
+                        <div style="background: #3f51b5; color: white; padding: 15px; border-radius: 8px;">⚡</div>
+                        <div class="service-label">Amazon DynamoDB<br/>Session Data<br/>Cache Layer</div>
+                    </div>
+                </div>
+                
+                <!-- AZ 2 -->
+                <div class="az-box">
+                    <div class="az-label">Availability Zone 1b</div>
+                    
+                    <div class="service-box">
+                        <div style="background: #ff9900; color: white; padding: 15px; border-radius: 8px;">⚙️</div>
+                        <div class="service-label">AWS Lambda<br/>Q&A Processing<br/>Analytics</div>
+                    </div>
+                    
+                    <div class="service-box">
+                        <div style="background: #4caf50; color: white; padding: 15px; border-radius: 8px;">🗄️</div>
+                        <div class="service-label">Amazon S3<br/>Multimedia Content<br/>Heritage Data</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="numbered-step">6</div>
+            
+            <!-- AI Services -->
+            <div class="ai-services">
+                <div style="text-align: center; font-weight: bold; margin-bottom: 15px; color: #f57c00;">AI/ML Services</div>
+                <div style="display: flex; justify-content: space-around;">
+                    <div class="service-box">
+                        <div style="background: #e91e63; color: white; padding: 15px; border-radius: 8px;">🧠</div>
+                        <div class="service-label">Amazon Bedrock<br/>Foundation Models<br/>Content Generation<br/>RAG System</div>
+                    </div>
+                    
+                    <div class="service-box">
+                        <div style="background: #9c27b0; color: white; padding: 15px; border-radius: 8px;">🗣️</div>
+                        <div class="service-label">Amazon Polly<br/>Text-to-Speech<br/>Neural Voices<br/>Indian Languages</div>
+                    </div>
+                    
+                    <div class="service-box">
+                        <div style="background: #2196f3; color: white; padding: 15px; border-radius: 8px;">🌍</div>
+                        <div class="service-label">Amazon Translate<br/>Language Detection<br/>Real-time Translation</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="numbered-step">7</div>
+            
+            <!-- Storage Services -->
+            <div class="storage-services">
+                <div style="text-align: center; font-weight: bold; margin-bottom: 15px; color: #7b1fa2;">Storage & Monitoring</div>
+                <div style="display: flex; justify-content: space-around;">
+                    <div class="service-box">
+                        <div style="background: #ff5722; color: white; padding: 15px; border-radius: 8px;">📊</div>
+                        <div class="service-label">Amazon CloudWatch<br/>Metrics & Logs<br/>Performance Monitoring</div>
+                    </div>
+                    
+                    <div class="service-box">
+                        <div style="background: #795548; color: white; padding: 15px; border-radius: 8px;">🔍</div>
+                        <div class="service-label">AWS X-Ray<br/>Distributed Tracing<br/>Performance Analysis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="numbered-step">8</div>
+        
+        <!-- Data Flow Description -->
+        <div style="background: #f0f0f0; padding: 15px; border-radius: 8px; margin-top: 20px;">
+            <h3>Data Flow Steps:</h3>
+            <ol style="font-size: 12px;">
+                <li><strong>User Request:</strong> Heritage site visitor scans QR code on mobile device</li>
+                <li><strong>DDoS Protection:</strong> AWS Shield protects against malicious traffic</li>
+                <li><strong>Global CDN:</strong> CloudFront serves cached content or forwards to origin</li>
+                <li><strong>Security Filter:</strong> AWS WAF filters malicious requests and applies rate limiting</li>
+                <li><strong>API Gateway:</strong> Routes requests, handles authentication, and validates input</li>
+                <li><strong>Serverless Compute:</strong> Lambda functions process QR codes and generate content</li>
+                <li><strong>AI Processing:</strong> Bedrock generates content, Polly creates audio, Translate handles languages</li>
+                <li><strong>Content Delivery:</strong> Generated content stored in S3, metadata cached in DynamoDB, delivered via CloudFront</li>
+            </ol>
+        </div>
+        
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #e8f5e8;"></div>
+                <span>Edge Services</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #fff3e0;"></div>
+                <span>AI/ML Services</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #f3e5f5;"></div>
+                <span>Storage & Monitoring</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #fff9f0;"></div>
+                <span>AWS Region</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
