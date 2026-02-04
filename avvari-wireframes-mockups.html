@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvvarI for Bharat - Wireframes & Mockups</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #ff6b35;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin: 10px 0 0 0;
+        }
+        
+        .wireframe-section {
+            margin: 40px 0;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .phone-mockup {
+            width: 280px;
+            height: 500px;
+            background: #2c3e50;
+            border-radius: 25px;
+            padding: 20px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .status-bar {
+            height: 20px;
+            background: #34495e;
+            margin: -15px -15px 15px -15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .app-header {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 15px;
+            margin: -15px -15px 20px -15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .mockup-title {
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .qr-scanner {
+            width: 200px;
+            height: 200px;
+            border: 3px dashed #ff6b35;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #ff6b35;
+            border-radius: 10px;
+        }
+        
+        .button {
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+        
+        .language-selector {
+            background: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        
+        .content-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .audio-controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .play-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            flex: 1;
+            height: 4px;
+            background: #34495e;
+            margin: 0 15px;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 30%;
+            background: #ff6b35;
+            border-radius: 2px;
+        }
+        
+        .video-player {
+            width: 100%;
+            height: 120px;
+            background: #2c3e50;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+            margin: 15px 0;
+        }
+        
+        .infographic-preview {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .chat-bubble {
+            background: #e3f2fd;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            max-width: 80%;
+        }
+        
+        .chat-bubble.user {
+            background: #ff6b35;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .chat-input {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        
+        .send-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .navigation-tabs {
+            display: flex;
+            justify-content: space-around;
+            background: #ecf0f1;
+            padding: 10px;
+            margin: 15px -15px -15px -15px;
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .nav-tab {
+            text-align: center;
+            padding: 5px;
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        
+        .nav-tab.active {
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            background: #f8f9fa;
+            margin: 8px 0;
+            padding: 12px;
+            border-left: 4px solid #ff6b35;
+            border-radius: 5px;
+        }
+        
+        .user-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .flow-step {
+            background: white;
+            border: 2px solid #ff6b35;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .flow-arrow {
+            font-size: 30px;
+            color: #ff6b35;
+            margin: 0 10px;
+        }
+        
+        .accessibility-features {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .offline-indicator {
+            background: #ffecb3;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏛️ AvvarI for Bharat</h1>
+            <p>Mobile App Wireframes & UI Mockups</p>
+            <p><em>AI-Powered Heritage Site Digitization Platform</em></p>
+        </div>
+
+        <!-- User Flow Overview -->
+        <div class="wireframe-section">
+            <div class="section-title">📱 Complete User Journey Flow</div>
+            <div class="user-flow">
+                <div class="flow-step">
+                    <div style="font-size: 40px;">📷</div>
+                    <h3>1. Scan QR Code</h3>
+                    <p>Visitor scans QR code on heritage artifact</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div style="font-size: 40px;">🌍</div>
+                    <h3>2. Select Language</h3>
+                    <p>Choose from 10+ Indian languages</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div style="font-size: 40px;">🎨</div>
+                    <h3>3. AI Content Generation</h3>
+                    <p>Bedrock creates personalized content</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div style="font-size: 40px;">📱</div>
+                    <h3>4. Multimedia Experience</h3>
+                    <p>Audio, video, and interactive content</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App Screens -->
+        <div class="wireframe-section">
+            <div class="section-title">📱 Core Application Screens</div>
+            <div class="wireframe-grid">
+                
+                <!-- Welcome Screen -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:41 AM</span>
+                            <span>🔋 100%</span>
+                        </div>
+                        <div class="app-header">AvvarI for Bharat</div>
+                        <div class="mockup-title">Welcome Screen</div>
+                        
+                        <div style="text-align: center; margin: 30px 0;">
+                            <div style="font-size: 80px; margin: 20px 0;">🏛️</div>
+                            <h2 style="color: #2c3e50; margin: 20px 0;">Discover India's Heritage</h2>
+                            <p style="color: #7f8c8d; padding: 0 20px;">Scan QR codes at heritage sites for immersive AI-powered experiences in your native language</p>
+                        </div>
+                        
+                        <div style="margin: 30px 0;">
+                            <button class="button" style="width: 100%;">🚀 Start Exploring</button>
+                            <button class="button" style="width: 100%; background: #34495e;">⚙️ Settings</button>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab active">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📷</div>
+                                <div>Scan</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>👤</div>
+                                <div>Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Scanner Screen -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:42 AM</span>
+                            <span>🔋 98%</span>
+                        </div>
+                        <div class="app-header">QR Code Scanner</div>
+                        <div class="mockup-title">QR Scanner Interface</div>
+                        
+                        <div class="qr-scanner">📷</div>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <p style="color: #7f8c8d;">Point your camera at the QR code on the heritage artifact</p>
+                            <div style="background: #e8f5e8; padding: 10px; border-radius: 8px; margin: 15px 0;">
+                                <strong>✅ Camera Ready</strong><br>
+                                <small>Position QR code within the frame</small>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <button class="button" style="width: 100%;">💡 Enable Flash</button>
+                            <button class="button" style="width: 100%; background: #34495e;">⌨️ Manual Entry</button>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>📷</div>
+                                <div>Scan</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>👤</div>
+                                <div>Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Selection -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:43 AM</span>
+                            <span>🔋 97%</span>
+                        </div>
+                        <div class="app-header">Language Selection</div>
+                        <div class="mockup-title">Choose Your Language</div>
+                        
+                        <div style="margin: 20px 0;">
+                            <p style="text-align: center; color: #7f8c8d;">Select your preferred language for content</p>
+                        </div>
+                        
+                        <div style="margin: 15px 0;">
+                            <select class="language-selector">
+                                <option>🇮🇳 हिंदी (Hindi)</option>
+                                <option>🇬🇧 English</option>
+                                <option>🇮🇳 தமிழ் (Tamil)</option>
+                                <option>🇮🇳 తెలుగు (Telugu)</option>
+                                <option>🇮🇳 বাংলা (Bengali)</option>
+                                <option>🇮🇳 मराठी (Marathi)</option>
+                                <option>🇮🇳 ગુજરાતી (Gujarati)</option>
+                                <option>🇮🇳 ಕನ್ನಡ (Kannada)</option>
+                                <option>🇮🇳 മലയാളം (Malayalam)</option>
+                                <option>🇮🇳 ਪੰਜਾਬੀ (Punjabi)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>🎯 Detected Artifact</h4>
+                            <p><strong>Lepakshi Temple - Hanging Pillar</strong></p>
+                            <p style="font-size: 12px; color: #7f8c8d;">Vijayanagara Architecture • 16th Century</p>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <button class="button" style="width: 100%;">✨ Generate Content</button>
+                            <button class="button" style="width: 100%; background: #34495e;">🔄 Scan Another</button>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>📷</div>
+                                <div>Scan</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>👤</div>
+                                <div>Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Loading -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:44 AM</span>
+                            <span>🔋 96%</span>
+                        </div>
+                        <div class="app-header">Generating Content...</div>
+                        <div class="mockup-title">AI Content Generation</div>
+                        
+                        <div style="text-align: center; margin: 40px 0;">
+                            <div style="font-size: 60px; margin: 20px 0;">🧠</div>
+                            <h3 style="color: #2c3e50;">Creating Your Experience</h3>
+                            <p style="color: #7f8c8d;">Amazon Bedrock is generating personalized content in Hindi</p>
+                        </div>
+                        
+                        <div style="margin: 30px 0;">
+                            <div style="background: #ecf0f1; height: 8px; border-radius: 4px; margin: 10px 0;">
+                                <div style="background: #ff6b35; height: 100%; width: 75%; border-radius: 4px; transition: width 0.3s;"></div>
+                            </div>
+                            <p style="text-align: center; font-size: 14px; color: #7f8c8d;">75% Complete</p>
+                        </div>
+                        
+                        <div class="feature-list">
+                            <li>✅ Historical context generated</li>
+                            <li>✅ Audio guide created</li>
+                            <li>🔄 Video content processing...</li>
+                            <li>⏳ Interactive infographics</li>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>📷</div>
+                                <div>Scan</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>👤</div>
+                                <div>Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Content Experience Screens -->
+        <div class="wireframe-section">
+            <div class="section-title">🎨 Multimedia Content Experience</div>
+            <div class="wireframe-grid">
+
+                <!-- Audio Guide Screen -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:45 AM</span>
+                            <span>🔋 95%</span>
+                        </div>
+                        <div class="app-header">Audio Guide</div>
+                        <div class="mockup-title">Immersive Audio Experience</div>
+                        
+                        <div class="content-card">
+                            <h3>🏛️ Lepakshi Temple - Hanging Pillar</h3>
+                            <p style="font-size: 12px; color: #7f8c8d;">16th Century • Vijayanagara Architecture</p>
+                        </div>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <div style="font-size: 80px; color: #ff6b35;">🎧</div>
+                            <p style="color: #7f8c8d;">AI-Generated Audio Guide in Hindi</p>
+                        </div>
+                        
+                        <div class="audio-controls">
+                            <button style="background: none; border: none; color: white; font-size: 20px;">⏮️</button>
+                            <button class="play-button">▶️</button>
+                            <button style="background: none; border: none; color: white; font-size: 20px;">⏭️</button>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; color: #7f8c8d; margin: 10px 0;">
+                            <span>1:23</span>
+                            <span>4:15</span>
+                        </div>
+                        
+                        <div style="margin: 15px 0;">
+                            <button class="button" style="width: 48%;">🔄 Replay</button>
+                            <button class="button" style="width: 48%; background: #34495e;">📝 Transcript</button>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🎧</div>
+                                <div>Audio</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>🎥</div>
+                                <div>Video</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📊</div>
+                                <div>Info</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>❓</div>
+                                <div>Q&A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Content Screen -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:46 AM</span>
+                            <span>🔋 94%</span>
+                        </div>
+                        <div class="app-header">Cinematic Experience</div>
+                        <div class="mockup-title">AI-Generated Video Content</div>
+                        
+                        <div class="video-player">
+                            <div style="text-align: center;">
+                                <div style="font-size: 40px; margin-bottom: 10px;">▶️</div>
+                                <div style="font-size: 14px;">Historical Reconstruction</div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>🎬 "The Mystery of the Hanging Pillar"</h4>
+                            <p style="font-size: 12px;">Duration: 3:45 • Quality: 720p HD</p>
+                            <p style="font-size: 12px; color: #7f8c8d;">Subtitles: Hindi • Generated by Amazon Bedrock</p>
+                        </div>
+                        
+                        <div style="margin: 15px 0;">
+                            <div style="display: flex; justify-content: space-between; margin: 10px 0;">
+                                <button class="button" style="width: 30%;">⬇️ Download</button>
+                                <button class="button" style="width: 30%;">🔄 Replay</button>
+                                <button class="button" style="width: 30%;">📱 Fullscreen</button>
+                            </div>
+                        </div>
+                        
+                        <div class="offline-indicator">
+                            📱 Available offline after download
+                        </div>
+                        
+                        <div style="margin: 15px 0;">
+                            <h5>🎯 Video Highlights:</h5>
+                            <ul style="font-size: 12px; color: #7f8c8d;">
+                                <li>Architectural engineering marvel</li>
+                                <li>Construction techniques of 16th century</li>
+                                <li>Cultural significance in Hinduism</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🎧</div>
+                                <div>Audio</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>🎥</div>
+                                <div>Video</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📊</div>
+                                <div>Info</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>❓</div>
+                                <div>Q&A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Infographics -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:47 AM</span>
+                            <span>🔋 93%</span>
+                        </div>
+                        <div class="app-header">Interactive Infographics</div>
+                        <div class="mockup-title">Visual Information Hub</div>
+                        
+                        <div class="infographic-preview">
+                            <div style="text-align: center;">
+                                <div style="font-size: 30px; margin-bottom: 10px;">📊📈📉</div>
+                                <div style="font-size: 12px;">Timeline • Architecture • Maps</div>
+                                <div style="font-size: 10px; margin-top: 5px;">👆 Touch to interact</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-around; margin: 15px 0;">
+                            <button class="button" style="width: 30%; font-size: 12px;">📅 Timeline</button>
+                            <button class="button" style="width: 30%; font-size: 12px;">🏗️ Architecture</button>
+                            <button class="button" style="width: 30%; font-size: 12px;">🗺️ Location</button>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>🏛️ Architectural Details</h4>
+                            <div style="font-size: 12px; color: #7f8c8d;">
+                                <p><strong>Height:</strong> 20 feet</p>
+                                <p><strong>Material:</strong> Granite stone</p>
+                                <p><strong>Technique:</strong> Precision engineering</p>
+                                <p><strong>Gap:</strong> Paper-thin space at base</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>📅 Historical Timeline</h4>
+                            <div style="font-size: 12px;">
+                                <p>• <strong>1530 CE:</strong> Construction begins</p>
+                                <p>• <strong>1540 CE:</strong> Temple completion</p>
+                                <p>• <strong>1800s:</strong> British documentation</p>
+                                <p>• <strong>Present:</strong> Archaeological wonder</p>
+                            </div>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🎧</div>
+                                <div>Audio</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>🎥</div>
+                                <div>Video</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>📊</div>
+                                <div>Info</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>❓</div>
+                                <div>Q&A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q&A Chat Interface -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:48 AM</span>
+                            <span>🔋 92%</span>
+                        </div>
+                        <div class="app-header">AI Assistant</div>
+                        <div class="mockup-title">Ask Questions - RAG System</div>
+                        
+                        <div style="height: 300px; overflow-y: auto; margin: 10px 0;">
+                            <div class="chat-bubble">
+                                <strong>🤖 AvvarI Assistant</strong><br>
+                                नमस्ते! मैं आपके प्रश्नों का उत्तर दे सकता हूं। Lepakshi Temple के बारे में क्या जानना चाहते हैं?
+                            </div>
+                            
+                            <div class="chat-bubble user">
+                                यह स्तंभ हवा में कैसे लटका हुआ है?
+                            </div>
+                            
+                            <div class="chat-bubble">
+                                <strong>🤖 AvvarI Assistant</strong><br>
+                                यह 16वीं सदी की अद्भुत इंजीनियरिंग है! स्तंभ का आधार जमीन से थोड़ा ऊपर है। यह संतुलन और गुरुत्वाकर्षण के सिद्धांतों पर आधारित है। क्या आप इसकी निर्माण तकनीक के बारे में और जानना चाहेंगे?
+                            </div>
+                            
+                            <div class="chat-bubble user">
+                                हां, निर्माण तकनीक बताइए
+                            </div>
+                            
+                            <div class="chat-bubble">
+                                <strong>🤖 AvvarI Assistant</strong><br>
+                                विजयनगर के शिल्पकारों ने प्रेसिजन इंजीनियरिंग का उपयोग किया। स्तंभ का वजन ऊपरी संरचना द्वारा संतुलित है। यह कागज की तरह पतली जगह छोड़कर बनाया गया है।
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input">
+                            <input type="text" placeholder="अपना प्रश्न यहाँ लिखें..." style="font-size: 14px;">
+                            <button class="send-button">📤</button>
+                        </div>
+                        
+                        <div style="margin: 10px 0; font-size: 10px; color: #7f8c8d; text-align: center;">
+                            🧠 Powered by Amazon Bedrock RAG System
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🎧</div>
+                                <div>Audio</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>🎥</div>
+                                <div>Video</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📊</div>
+                                <div>Info</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>❓</div>
+                                <div>Q&A</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Accessibility & Special Features -->
+        <div class="wireframe-section">
+            <div class="section-title">♿ Accessibility & Special Features</div>
+            <div class="wireframe-grid">
+
+                <!-- Accessibility Settings -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:49 AM</span>
+                            <span>🔋 91%</span>
+                        </div>
+                        <div class="app-header">Accessibility Settings</div>
+                        <div class="mockup-title">Inclusive Design Features</div>
+                        
+                        <div class="accessibility-features">
+                            <h4>♿ Accessibility Options</h4>
+                            <div style="margin: 15px 0;">
+                                <label style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+                                    <span>🔊 Voice Navigation</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                                <label style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+                                    <span>👁️ High Contrast Mode</span>
+                                    <input type="checkbox">
+                                </label>
+                                <label style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+                                    <span>🔤 Large Text</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                                <label style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+                                    <span>📝 Audio Descriptions</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>🎛️ Audio Controls</h4>
+                            <div style="margin: 10px 0;">
+                                <label>🔊 Volume: </label>
+                                <input type="range" style="width: 70%;">
+                            </div>
+                            <div style="margin: 10px 0;">
+                                <label>⚡ Speed: </label>
+                                <select style="width: 70%;">
+                                    <option>0.5x Slow</option>
+                                    <option selected>1.0x Normal</option>
+                                    <option>1.5x Fast</option>
+                                    <option>2.0x Very Fast</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>🌍 Language & Region</h4>
+                            <p style="font-size: 12px;">Current: हिंदी (Hindi)</p>
+                            <button class="button" style="width: 100%; margin: 10px 0;">🔄 Change Language</button>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📷</div>
+                                <div>Scan</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>⚙️</div>
+                                <div>Settings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offline Mode -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:50 AM</span>
+                            <span>🔋 90% ❌</span>
+                        </div>
+                        <div class="app-header" style="background: #95a5a6;">Offline Mode</div>
+                        <div class="mockup-title">No Internet Connection</div>
+                        
+                        <div style="text-align: center; margin: 30px 0;">
+                            <div style="font-size: 60px; color: #95a5a6;">📱</div>
+                            <h3 style="color: #7f8c8d;">Offline Mode Active</h3>
+                            <p style="color: #95a5a6;">Access your downloaded content</p>
+                        </div>
+                        
+                        <div class="offline-indicator">
+                            📡 No internet connection detected
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>💾 Available Offline Content</h4>
+                            <div style="font-size: 12px;">
+                                <p>✅ Lepakshi Temple - Audio Guide</p>
+                                <p>✅ Hampi Ruins - Basic Info</p>
+                                <p>✅ Ajanta Caves - Image Gallery</p>
+                                <p style="color: #95a5a6;">❌ Video content (requires internet)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <h4>📷 Offline QR Scanning</h4>
+                            <p style="font-size: 12px;">You can still scan QR codes for previously visited sites. New content will sync when connection is restored.</p>
+                        </div>
+                        
+                        <div style="margin: 20px 0;">
+                            <button class="button" style="width: 100%; background: #95a5a6;">📱 Browse Offline Content</button>
+                            <button class="button" style="width: 100%;">🔄 Retry Connection</button>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>📱</div>
+                                <div>Offline</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>⚙️</div>
+                                <div>Settings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visit History -->
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="status-bar">
+                            <span>9:51 AM</span>
+                            <span>🔋 89%</span>
+                        </div>
+                        <div class="app-header">Visit History</div>
+                        <div class="mockup-title">Your Heritage Journey</div>
+                        
+                        <div style="margin: 15px 0;">
+                            <input type="text" placeholder="🔍 Search your visits..." style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 8px;">
+                        </div>
+                        
+                        <div class="content-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h4>🏛️ Lepakshi Temple</h4>
+                                    <p style="font-size: 12px; color: #7f8c8d;">Today, 9:45 AM • Andhra Pradesh</p>
+                                    <p style="font-size: 12px;">✅ Audio Guide • ✅ Video • ✅ Q&A Session</p>
+                                </div>
+                                <div style="font-size: 20px;">📱</div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h4>🏛️ Hampi Ruins</h4>
+                                    <p style="font-size: 12px; color: #7f8c8d;">Yesterday, 2:30 PM • Karnataka</p>
+                                    <p style="font-size: 12px;">✅ Audio Guide • ❌ Video • ✅ Infographics</p>
+                                </div>
+                                <div style="font-size: 20px;">💾</div>
+                            </div>
+                        </div>
+                        
+                        <div class="content-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h4>🏛️ Ajanta Caves</h4>
+                                    <p style="font-size: 12px; color: #7f8c8d;">Last week • Maharashtra</p>
+                                    <p style="font-size: 12px;">✅ Complete Experience • 5 Artifacts</p>
+                                </div>
+                                <div style="font-size: 20px;">⭐</div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin: 20px 0;">
+                            <p style="color: #7f8c8d; font-size: 12px;">📊 Total Sites Visited: 12 • Content Generated: 45 items</p>
+                        </div>
+                        
+                        <div class="navigation-tabs">
+                            <div class="nav-tab">
+                                <div>🏠</div>
+                                <div>Home</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>📷</div>
+                                <div>Scan</div>
+                            </div>
+                            <div class="nav-tab active">
+                                <div>📚</div>
+                                <div>History</div>
+                            </div>
+                            <div class="nav-tab">
+                                <div>👤</div>
+                                <div>Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Technical Features Summary -->
+        <div class="wireframe-section">
+            <div class="section-title">⚙️ Technical Implementation Highlights</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                
+                <div class="content-card">
+                    <h3>🧠 AI-Powered Features</h3>
+                    <ul class="feature-list">
+                        <li>Amazon Bedrock for content generation</li>
+                        <li>Amazon Polly for multilingual TTS</li>
+                        <li>RAG system for intelligent Q&A</li>
+                        <li>Real-time language translation</li>
+                        <li>Context-aware responses</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3>📱 Mobile Experience</h3>
+                    <ul class="feature-list">
+                        <li>Native QR code scanning</li>
+                        <li>Offline content access</li>
+                        <li>Adaptive video streaming</li>
+                        <li>Touch-interactive infographics</li>
+                        <li>Voice navigation support</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3>♿ Accessibility</h3>
+                    <ul class="feature-list">
+                        <li>Screen reader compatibility</li>
+                        <li>High contrast mode</li>
+                        <li>Adjustable text size</li>
+                        <li>Audio descriptions</li>
+                        <li>Voice-guided navigation</li>
+                    </ul>
+                </div>
+                
+                <div class="content-card">
+                    <h3>🌍 Multilingual Support</h3>
+                    <ul class="feature-list">
+                        <li>10+ Indian languages</li>
+                        <li>Cultural context preservation</li>
+                        <li>Native voice profiles</li>
+                        <li>Regional script support</li>
+                        <li>Automatic language detection</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+            <h3>🏛️ AvvarI for Bharat</h3>
+            <p>Transforming Heritage Site Experiences with AI</p>
+            <p style="font-size: 12px; color: #7f8c8d;">
+                Built with AWS Services: Bedrock • Polly • Lambda • S3 • DynamoDB • CloudFront<br>
+                Designed for AI for Bharat Hackathon 2024
+            </p>
+        </div>
+    </div>
+</body>
+</html>
