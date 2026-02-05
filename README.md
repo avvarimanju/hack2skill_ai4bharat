@@ -148,16 +148,16 @@ The project includes **37 correctness properties** validated through property-ba
 ## 🌍 Multilingual Support
 
 ### Supported Languages
-- 🇮🇳 **हिंदी (Hindi)** - Primary language
 - 🇬🇧 **English** - International accessibility
+- 🇮🇳 **हिंदी (Hindi)** - National language
 - 🇮🇳 **తెలుగు (Telugu)** - Andhra Pradesh & Telangana
-- 🇮🇳 **தமிழ் (Tamil)** - Tamil Nadu
 - 🇮🇳 **বাংলা (Bengali)** - West Bengal & Bangladesh
-- 🇮🇳 **मराठी (Marathi)** - Maharashtra heritage
 - 🇮🇳 **ગુજરાતી (Gujarati)** - Gujarat culture
 - 🇮🇳 **ಕನ್ನಡ (Kannada)** - Karnataka traditions
 - 🇮🇳 **മലയാളം (Malayalam)** - Kerala heritage
+- 🇮🇳 **मराठी (Marathi)** - Maharashtra heritage
 - 🇮🇳 **ਪੰਜਾਬੀ (Punjabi)** - Punjab culture
+- 🇮🇳 **தமிழ் (Tamil)** - Tamil Nadu
 
 ### Cultural Context Preservation
 - Regional voice profiles with Amazon Polly
