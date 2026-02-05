@@ -151,7 +151,7 @@ The project includes **37 correctness properties** validated through property-ba
 - 🇬🇧 **English** - International accessibility
 - 🇮🇳 **हिंदी (Hindi)** - Uttar Pradesh, Bihar, Madhya Pradesh, Rajasthan & others
 - 🇮🇳 **తెలుగు (Telugu)** - Andhra Pradesh & Telangana
-- 🇮🇳 **বাংলা (Bengali)** - West Bengal & Bangladesh
+- 🇮🇳 **বাংলা (Bengali)** - West Bengal
 - 🇮🇳 **ગુજરાતી (Gujarati)** - Gujarat culture
 - 🇮🇳 **ಕನ್ನಡ (Kannada)** - Karnataka traditions
 - 🇮🇳 **മലയാളം (Malayalam)** - Kerala heritage
