@@ -149,7 +149,7 @@ The project includes **37 correctness properties** validated through property-ba
 
 ### Supported Languages
 - 🇬🇧 **English** - International accessibility
-- 🇮🇳 **हिंदी (Hindi)** - National language
+- 🇮🇳 **हिंदी (Hindi)** - Uttar Pradesh, Bihar, Madhya Pradesh, Rajasthan & others
 - 🇮🇳 **తెలుగు (Telugu)** - Andhra Pradesh & Telangana
 - 🇮🇳 **বাংলা (Bengali)** - West Bengal & Bangladesh
 - 🇮🇳 **ગુજરાતી (Gujarati)** - Gujarat culture
