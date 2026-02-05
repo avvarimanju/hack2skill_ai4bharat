@@ -150,8 +150,8 @@ The project includes **37 correctness properties** validated through property-ba
 ### Supported Languages
 - 🇮🇳 **हिंदी (Hindi)** - Primary language
 - 🇬🇧 **English** - International accessibility
-- 🇮🇳 **தமிழ் (Tamil)** - South Indian heritage
 - 🇮🇳 **తెలుగు (Telugu)** - Andhra Pradesh & Telangana
+- 🇮🇳 **தமிழ் (Tamil)** - Tamil Nadu
 - 🇮🇳 **বাংলা (Bengali)** - West Bengal & Bangladesh
 - 🇮🇳 **मराठी (Marathi)** - Maharashtra heritage
 - 🇮🇳 **ગુજરાતી (Gujarati)** - Gujarat culture
