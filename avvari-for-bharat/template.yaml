@@ -1,0 +1,111 @@
+# AWS SAM template for local development and testing
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AvvarI for Bharat - Local Development Template
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs18.x
+    Environment:
+      Variables:
+        NODE_ENV: development
+        LOG_LEVEL: debug
+        HERITAGE_SITES_TABLE: AvvarI-HeritageSites-Local
+        ARTIFACTS_TABLE: AvvarI-Artifacts-Local
+        USER_SESSIONS_TABLE: AvvarI-UserSessions-Local
+        CONTENT_CACHE_TABLE: AvvarI-ContentCache-Local
+        ANALYTICS_TABLE: AvvarI-Analytics-Local
+        CONTENT_BUCKET: avvari-content-local
+        CLOUDFRONT_DOMAIN: localhost:3000
+
+Resources:
+  # API Gateway
+  AvvarIApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: dev
+      Cors:
+        AllowMethods: "'GET,POST,OPTIONS'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
+
+  # Lambda Functions
+  QRProcessingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist/lambdas/
+      Handler: qr-processing.handler
+      Events:
+        QRScan:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /qr
+            Method: post
+
+  ContentGenerationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist/lambdas/
+      Handler: content-generation.handler
+      Timeout: 300
+      MemorySize: 1024
+      Events:
+        GenerateContent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /content
+            Method: post
+        GetContent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /content/{artifactId}
+            Method: get
+
+  QAProcessingFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist/lambdas/
+      Handler: qa-processing.handler
+      Timeout: 120
+      Events:
+        ProcessQuestion:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /qa
+            Method: post
+        GetHistory:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /qa/{sessionId}
+            Method: get
+
+  AnalyticsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dist/lambdas/
+      Handler: analytics.handler
+      MemorySize: 256
+      Events:
+        RecordEvent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /analytics
+            Method: post
+        GetReport:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AvvarIApi
+            Path: /analytics
+            Method: get
+
+Outputs:
+  AvvarIApiUrl:
+    Description: "API Gateway endpoint URL for dev stage"
+    Value: !Sub "https://${AvvarIApi}.execute-api.${AWS::Region}.amazonaws.com/dev/"
