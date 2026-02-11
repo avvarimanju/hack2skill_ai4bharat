@@ -82,6 +82,32 @@ export type {
   CacheMetrics,
 } from './cache-management-service';
 
+export { PerformanceMonitoringService } from './performance-monitoring-service';
+export type {
+  PerformanceMetric,
+  RequestTrace,
+  PerformanceAlert,
+  PerformanceDashboardData,
+} from './performance-monitoring-service';
+
+export { NetworkAwareDeliveryService } from './network-aware-delivery-service';
+export type {
+  NetworkQuality,
+  ContentQuality,
+  ContentPriority,
+  NetworkConditions,
+  ContentDeliveryOptions,
+  AdaptiveQualityRecommendation,
+  ProgressiveLoadingStrategy,
+} from './network-aware-delivery-service';
+
+export { OfflineCacheService } from './offline-cache-service';
+export type {
+  CachedContent,
+  QRScanCache,
+  OfflineCacheStats,
+} from './offline-cache-service';
+
 // Import service classes for factory (after exports to avoid circular dependency)
 import type { QRProcessingService } from './qr-processing-service';
 import type { SessionManagementService } from './session-management-service';
@@ -93,6 +119,9 @@ import type { VideoService } from './video-service';
 import type { InfographicService } from './infographic-service';
 import type { ContentRepositoryService } from './content-repository-service';
 import type { CacheManagementService } from './cache-management-service';
+import type { PerformanceMonitoringService } from './performance-monitoring-service';
+import type { NetworkAwareDeliveryService } from './network-aware-delivery-service';
+import type { OfflineCacheService } from './offline-cache-service';
 
 // Service factory for dependency injection
 export class ServiceFactory {
@@ -106,6 +135,9 @@ export class ServiceFactory {
   private static infographicService: InfographicService | null = null;
   private static contentRepositoryService: ContentRepositoryService | null = null;
   private static cacheManagementService: CacheManagementService | null = null;
+  private static performanceMonitoringService: PerformanceMonitoringService | null = null;
+  private static networkAwareDeliveryService: NetworkAwareDeliveryService | null = null;
+  private static offlineCacheService: OfflineCacheService | null = null;
 
   /**
    * Get QR Processing service instance (singleton)
@@ -218,6 +250,39 @@ export class ServiceFactory {
   }
 
   /**
+   * Get Performance Monitoring service instance (singleton)
+   */
+  public static getPerformanceMonitoringService(): PerformanceMonitoringService {
+    if (!this.performanceMonitoringService) {
+      const { PerformanceMonitoringService: Service } = require('./performance-monitoring-service');
+      this.performanceMonitoringService = new Service();
+    }
+    return this.performanceMonitoringService!;
+  }
+
+  /**
+   * Get Network-Aware Delivery service instance (singleton)
+   */
+  public static getNetworkAwareDeliveryService(): NetworkAwareDeliveryService {
+    if (!this.networkAwareDeliveryService) {
+      const { NetworkAwareDeliveryService: Service } = require('./network-aware-delivery-service');
+      this.networkAwareDeliveryService = new Service();
+    }
+    return this.networkAwareDeliveryService!;
+  }
+
+  /**
+   * Get Offline Cache service instance (singleton)
+   */
+  public static getOfflineCacheService(): OfflineCacheService {
+    if (!this.offlineCacheService) {
+      const { OfflineCacheService: Service } = require('./offline-cache-service');
+      this.offlineCacheService = new Service();
+    }
+    return this.offlineCacheService!;
+  }
+
+  /**
    * Reset all service instances (useful for testing)
    */
   public static resetInstances(): void {
@@ -231,5 +296,8 @@ export class ServiceFactory {
     this.infographicService = null;
     this.contentRepositoryService = null;
     this.cacheManagementService = null;
+    this.performanceMonitoringService = null;
+    this.networkAwareDeliveryService = null;
+    this.offlineCacheService = null;
   }
 }

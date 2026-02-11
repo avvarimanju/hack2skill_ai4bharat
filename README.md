@@ -6,7 +6,7 @@
 [![Mobile](https://img.shields.io/badge/Platform-Mobile%20First-purple)](https://reactnative.dev/)
 
 > **Transforming Heritage Site Experiences with AI**  
-> *Submitted for AWS AI for Bharat Hackathon 2024*
+> *Submitted for AWS AI for Bharat Hackathon 2026*
 
 ## 🌟 Overview
 
@@ -212,7 +212,7 @@ The project includes **37 correctness properties** validated through property-ba
 
 ## 🏆 Hackathon Submission
 
-### AWS AI for Bharat Hackathon 2024
+### AWS AI for Bharat Hackathon 2026
 - **Team**: Manjunath Venkata Avvari (avvarimanju)
 - **Category**: AI-Powered Cultural Heritage
 - **Submission Date**: February 2026
@@ -280,7 +280,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **🏛️ Preserving India's Heritage Through AI 🤖**
 
-*Made with ❤️ for the AWS AI for Bharat Hackathon 2024*
+*Made with ❤️ for the AWS AI for Bharat Hackathon 2026*
 
 [![GitHub stars](https://img.shields.io/github/stars/avvarimanju/hack2skill_ai4bharat?style=social)](https://github.com/avvarimanju/hack2skill_ai4bharat/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/avvarimanju/hack2skill_ai4bharat?style=social)](https://github.com/avvarimanju/hack2skill_ai4bharat/network/members)
