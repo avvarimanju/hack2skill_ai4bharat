@@ -33,6 +33,55 @@ export type {
   VoiceInfo,
 } from './polly-service';
 
+export { VideoService } from './video-service';
+export type {
+  VideoGenerationRequest,
+  VideoGenerationResult,
+  VideoProcessingRequest,
+  VideoProcessingResult,
+  SubtitleGenerationRequest,
+  SubtitleGenerationResult,
+  SubtitleTrack,
+  Timecode,
+  VideoQuality,
+  VideoFormat,
+  VideoMetadata,
+} from './video-service';
+
+export { InfographicService } from './infographic-service';
+export type {
+  InfographicGenerationRequest,
+  InfographicGenerationResult,
+  InfographicType,
+  InfographicFormat,
+  InfographicData,
+  TimelineEvent,
+  MapLocation,
+  DiagramNode,
+  ArchitecturalElement,
+  InfographicMetadata,
+  InteractiveElement,
+} from './infographic-service';
+
+export { ContentRepositoryService } from './content-repository-service';
+export type {
+  ContentUploadRequest,
+  ContentUploadResult,
+  ContentRetrievalRequest,
+  ContentRetrievalResult,
+  ContentType,
+  ContentMetadata,
+} from './content-repository-service';
+
+export { CacheManagementService } from './cache-management-service';
+export type {
+  CacheStrategy,
+  CachePriority,
+  CacheRefreshRequest,
+  CacheInvalidationRequest,
+  CacheMetrics,
+} from './cache-management-service';
+
 // Import service classes for factory (after exports to avoid circular dependency)
 import type { QRProcessingService } from './qr-processing-service';
 import type { SessionManagementService } from './session-management-service';
@@ -40,6 +89,10 @@ import type { BedrockService } from './bedrock-service';
 import type { RAGService } from './rag-service';
 import type { TranslationService } from './translation-service';
 import type { PollyService } from './polly-service';
+import type { VideoService } from './video-service';
+import type { InfographicService } from './infographic-service';
+import type { ContentRepositoryService } from './content-repository-service';
+import type { CacheManagementService } from './cache-management-service';
 
 // Service factory for dependency injection
 export class ServiceFactory {
@@ -49,6 +102,10 @@ export class ServiceFactory {
   private static ragService: RAGService | null = null;
   private static translationService: TranslationService | null = null;
   private static pollyService: PollyService | null = null;
+  private static videoService: VideoService | null = null;
+  private static infographicService: InfographicService | null = null;
+  private static contentRepositoryService: ContentRepositoryService | null = null;
+  private static cacheManagementService: CacheManagementService | null = null;
 
   /**
    * Get QR Processing service instance (singleton)
@@ -117,6 +174,50 @@ export class ServiceFactory {
   }
 
   /**
+   * Get Video service instance (singleton)
+   */
+  public static getVideoService(): VideoService {
+    if (!this.videoService) {
+      const { VideoService: Service } = require('./video-service');
+      this.videoService = new Service();
+    }
+    return this.videoService!;
+  }
+
+  /**
+   * Get Infographic service instance (singleton)
+   */
+  public static getInfographicService(): InfographicService {
+    if (!this.infographicService) {
+      const { InfographicService: Service } = require('./infographic-service');
+      this.infographicService = new Service();
+    }
+    return this.infographicService!;
+  }
+
+  /**
+   * Get Content Repository service instance (singleton)
+   */
+  public static getContentRepositoryService(): ContentRepositoryService {
+    if (!this.contentRepositoryService) {
+      const { ContentRepositoryService: Service } = require('./content-repository-service');
+      this.contentRepositoryService = new Service();
+    }
+    return this.contentRepositoryService!;
+  }
+
+  /**
+   * Get Cache Management service instance (singleton)
+   */
+  public static getCacheManagementService(): CacheManagementService {
+    if (!this.cacheManagementService) {
+      const { CacheManagementService: Service } = require('./cache-management-service');
+      this.cacheManagementService = new Service();
+    }
+    return this.cacheManagementService!;
+  }
+
+  /**
    * Reset all service instances (useful for testing)
    */
   public static resetInstances(): void {
@@ -126,5 +227,9 @@ export class ServiceFactory {
     this.ragService = null;
     this.translationService = null;
     this.pollyService = null;
+    this.videoService = null;
+    this.infographicService = null;
+    this.contentRepositoryService = null;
+    this.cacheManagementService = null;
   }
 }
