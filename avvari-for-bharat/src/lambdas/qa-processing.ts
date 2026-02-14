@@ -20,7 +20,7 @@ export const handler = async (
   context: Context
 ): Promise<APIGatewayProxyResult> => {
   console.log('Q&A Processing Lambda invoked', {
-    requestId: context.requestId,
+    requestId: context.awsRequestId,
     httpMethod: event.httpMethod,
     path: event.path,
   });
@@ -64,7 +64,7 @@ export const handler = async (
         body: JSON.stringify({
           success: false,
           error: 'Request body is required',
-          requestId: context.requestId,
+          requestId: context.awsRequestId,
         }),
       };
     }
@@ -79,7 +79,7 @@ export const handler = async (
         body: JSON.stringify({
           success: false,
           error: 'Missing required fields: question, language',
-          requestId: context.requestId,
+          requestId: context.awsRequestId,
         }),
       };
     }

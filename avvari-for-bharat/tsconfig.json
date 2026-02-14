@@ -27,7 +27,6 @@
       "./node_modules/@types"
     ],
     "outDir": "./dist",
-    "rootDir": "./src",
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],

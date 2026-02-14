@@ -213,7 +213,7 @@ export class RAGService {
         if (cachedContent) {
           documents.push({
             id: cachedContent.contentId,
-            content: cachedContent.data.textContent || '',
+            content: cachedContent.data.text || '',
             metadata: {
               artifactId: request.artifactId,
               contentType: 'cached_content',

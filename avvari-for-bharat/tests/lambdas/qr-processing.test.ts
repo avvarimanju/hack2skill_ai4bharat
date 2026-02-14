@@ -78,7 +78,10 @@ describe('QR Processing Lambda', () => {
       stageVariables: null,
       requestContext: {} as any,
       resource: '',
-      body: JSON.stringify({ qrData: 'test-qr-data' }),
+      body: JSON.stringify({ 
+        qrData: 'SITE_001_ARTIFACT_001',
+        sessionId: 'test-session-123'
+      }),
       isBase64Encoded: false,
     };
 

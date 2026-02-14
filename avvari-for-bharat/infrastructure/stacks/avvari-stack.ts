@@ -320,10 +320,6 @@ export class AvvarIStack extends cdk.Stack {
       },
       deployOptions: {
         stageName: 'prod',
-        throttle: {
-          rateLimit: 1000,
-          burstLimit: 2000,
-        },
         loggingLevel: apigateway.MethodLoggingLevel.INFO,
         dataTraceEnabled: true,
         metricsEnabled: true,

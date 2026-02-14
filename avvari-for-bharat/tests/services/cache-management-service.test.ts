@@ -1,6 +1,6 @@
 // Unit tests for CacheManagementService
 import { CacheManagementService } from '../../src/services/cache-management-service';
-import { ContentCacheRepository } from '../../src/repositories/content-cache-repository';
+import { ContentCacheRepository, CachedContent } from '../../src/repositories/content-cache-repository';
 import { Language, ContentType } from '../../src/models/common';
 
 // Mock dependencies
@@ -68,8 +68,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [],
       });
@@ -89,8 +89,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [],
       });
@@ -110,8 +110,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [],
       });
@@ -124,15 +124,30 @@ describe('CacheManagementService', () => {
 
   describe('getCachedContent', () => {
     it('should get cached content and adjust TTL', async () => {
-      const cachedContent = {
+      const cachedContent: CachedContent = {
         contentId: 'content-123',
         artifactId: 'artifact-456',
         contentType: 'image' as ContentType,
         language: Language.ENGLISH,
-        url: 'https://example.com/image.jpg',
-        format: 'jpeg',
-        size: 1024,
-        metadata: {},
+        data: {
+          audioUrl: 'https://example.com/image.jpg',
+          fileSize: 1024,
+        },
+        metadata: {
+          siteId: 'site-123',
+          artifactId: 'artifact-456',
+          contentType: 'image' as ContentType,
+          language: Language.ENGLISH,
+          version: '1.0',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          tags: [],
+        },
+        cacheSettings: {
+          ttl: 3600,
+          priority: 5,
+          tags: [],
+        },
         accessCount: 150,
         lastAccessed: new Date().toISOString(),
         expiresAt: new Date(Date.now() + 3600000).toISOString(),
@@ -156,15 +171,30 @@ describe('CacheManagementService', () => {
     });
 
     it('should extend TTL for medium priority content', async () => {
-      const cachedContent = {
+      const cachedContent: CachedContent = {
         contentId: 'content-123',
         artifactId: 'artifact-456',
         contentType: 'video' as ContentType,
         language: Language.HINDI,
-        url: 'https://example.com/video.mp4',
-        format: 'mp4',
-        size: 2048,
-        metadata: {},
+        data: {
+          audioUrl: 'https://example.com/video.mp4',
+          fileSize: 2048,
+        },
+        metadata: {
+          siteId: 'site-123',
+          artifactId: 'artifact-456',
+          contentType: 'video' as ContentType,
+          language: Language.HINDI,
+          version: '1.0',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          tags: [],
+        },
+        cacheSettings: {
+          ttl: 3600,
+          priority: 5,
+          tags: [],
+        },
         accessCount: 75,
         lastAccessed: new Date().toISOString(),
         expiresAt: new Date(Date.now() + 3600000).toISOString(),
@@ -178,15 +208,30 @@ describe('CacheManagementService', () => {
     });
 
     it('should not extend TTL for low priority content', async () => {
-      const cachedContent = {
+      const cachedContent: CachedContent = {
         contentId: 'content-123',
         artifactId: 'artifact-456',
         contentType: 'audio' as ContentType,
         language: Language.TAMIL,
-        url: 'https://example.com/audio.mp3',
-        format: 'mp3',
-        size: 512,
-        metadata: {},
+        data: {
+          audioUrl: 'https://example.com/audio.mp3',
+          fileSize: 512,
+        },
+        metadata: {
+          siteId: 'site-123',
+          artifactId: 'artifact-456',
+          contentType: 'audio' as ContentType,
+          language: Language.TAMIL,
+          version: '1.0',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          tags: [],
+        },
+        cacheSettings: {
+          ttl: 3600,
+          priority: 5,
+          tags: [],
+        },
         accessCount: 5,
         lastAccessed: new Date().toISOString(),
         expiresAt: new Date(Date.now() + 3600000).toISOString(),
@@ -202,15 +247,30 @@ describe('CacheManagementService', () => {
 
   describe('getCachedContentByArtifact', () => {
     it('should get cached content by artifact', async () => {
-      const cachedContent = {
+      const cachedContent: CachedContent = {
         contentId: 'content-123',
         artifactId: 'artifact-456',
         contentType: 'image' as ContentType,
         language: Language.ENGLISH,
-        url: 'https://example.com/image.jpg',
-        format: 'jpeg',
-        size: 1024,
-        metadata: {},
+        data: {
+          audioUrl: 'https://example.com/image.jpg',
+          fileSize: 1024,
+        },
+        metadata: {
+          siteId: 'site-123',
+          artifactId: 'artifact-456',
+          contentType: 'image' as ContentType,
+          language: Language.ENGLISH,
+          version: '1.0',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          tags: [],
+        },
+        cacheSettings: {
+          ttl: 3600,
+          priority: 5,
+          tags: [],
+        },
         accessCount: 10,
         lastAccessed: new Date().toISOString(),
         expiresAt: new Date(Date.now() + 3600000).toISOString(),
@@ -241,8 +301,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [],
       });
@@ -268,8 +328,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [],
       });
@@ -350,8 +410,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 3,
         totalAccessCount: 200,
         averageAccessCount: 66.67,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 0,
         topAccessedContent: [
           {
@@ -423,8 +483,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [],
       });
@@ -442,8 +502,8 @@ describe('CacheManagementService', () => {
         totalCachedItems: 100,
         totalAccessCount: 500,
         averageAccessCount: 5,
-        contentTypeDistribution: {},
-        languageDistribution: {},
+        contentTypeDistribution: {} as any,
+        languageDistribution: {} as any,
         expiringWithin24Hours: 10,
         topAccessedContent: [
           {

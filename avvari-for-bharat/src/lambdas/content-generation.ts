@@ -20,7 +20,7 @@ export const handler = async (
   context: Context
 ): Promise<APIGatewayProxyResult> => {
   console.log('Content Generation Lambda invoked', {
-    requestId: context.requestId,
+    requestId: context.awsRequestId,
     httpMethod: event.httpMethod,
     path: event.path,
   });

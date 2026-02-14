@@ -68,7 +68,7 @@ describe('Data Models and Validation', () => {
       const result = validateHeritageSite(invalidSite);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('latitude'));
+        expect(result.errors).toContainEqual(expect.stringContaining('latitude'));
       }
     });
 
@@ -91,7 +91,7 @@ describe('Data Models and Validation', () => {
       const result = validateHeritageSite(invalidSite);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('supportedLanguages'));
+        expect(result.errors).toContainEqual(expect.stringContaining('supportedLanguages'));
       }
     });
   });
@@ -147,7 +147,7 @@ describe('Data Models and Validation', () => {
       const result = validateMultimediaContent(invalidContent);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('audioUrl'));
+        expect(result.errors).toContainEqual(expect.stringContaining('audioUrl'));
       }
     });
 
@@ -163,7 +163,7 @@ describe('Data Models and Validation', () => {
       const result = validateMultimediaContent(invalidContent);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('priority'));
+        expect(result.errors).toContainEqual(expect.stringContaining('priority'));
       }
     });
   });
@@ -236,7 +236,7 @@ describe('Data Models and Validation', () => {
       const result = validateUserSession(invalidSession);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('audioSpeed'));
+        expect(result.errors).toContainEqual(expect.stringContaining('audioSpeed'));
       }
     });
 
@@ -254,7 +254,7 @@ describe('Data Models and Validation', () => {
       const result = validateUserSession(invalidSession);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('completionPercentage'));
+        expect(result.errors).toContainEqual(expect.stringContaining('completionPercentage'));
       }
     });
   });
@@ -303,7 +303,7 @@ describe('Data Models and Validation', () => {
       const result = validateArtifactMetadata(invalidArtifact);
       expect(result.success).toBe(false);
       if (!result.success) {
-        expect(result.errors).toContain(expect.stringContaining('height'));
+        expect(result.errors).toContainEqual(expect.stringContaining('height'));
       }
     });
 
